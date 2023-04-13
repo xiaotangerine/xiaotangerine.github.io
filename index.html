@@ -166,6 +166,48 @@
         
 
 <div class="post">
+    <a href="/2023/04/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%92%8C%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/">
+        <h2 class="post-title">数据库常用类型和设计规范</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/4/13
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h3 id="常用的-SQL-类型"><a href="#常用的-SQL-类型" class="headerlink" title="常用的 SQL 类型"></a>常用的 SQL 类型</h3><p>int 整型<br>varchar 字符串长度<br>double 浮点数（小数）<br>数据库 三范式<br>1.数据库表要 抽象出 需要存储的这个事务 或是 人 （抽象的意思是比如我要存储某一个人的数据 就要知道他的名字唯一 性别 年龄 等）<br>2.数据库表之前要存在关系 关系分为三种 一对一 一对多 多对多 常见就前两种<br>一般在数据库表设计时前两种范式基本就符合表设计的规范<br>数据库存在 空间换时间 时间换空间的概念 也就是设计时如何取舍根据业务来去设计 空间指的是更多的表更多的存储空间 时间指的是更快的速度 查询的时间短</p>
+<h3 id="多表查询语句c-asp-net"><a href="#多表查询语句c-asp-net" class="headerlink" title="多表查询语句c#+asp.net"></a>多表查询语句c#+asp.net</h3><pre><code>    var result = (from a in school.studentbaseinfor
+                          join b in school.score
+                          on a.id equals b.stuid
+                          //主键，外键
+                          //where a.name.Contains( this.textBox1.Text.Trim())
+                          where a.name == this.textBox1.Text.Trim()
+                          select new
+                          &#123;
+                              a.name,
+                              b.fenshu
+                          &#125;).ToList();
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2023/04/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%92%8C%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2023/04/12/c-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
         <h2 class="post-title">c#基础知识</h2>
     </a>
@@ -183,7 +225,11 @@
     <div class="description">
         <div class="content" v-pre>
             
-            
+            <h3 id="变量规则"><a href="#变量规则" class="headerlink" title="变量规则"></a>变量规则</h3><p>不能以数字开头、不能以程序关键字命名、不能有特殊符号卡头(除下划线 _ )、驼峰命名法、区分大小写</p>
+<h3 id="变量类型和使用规则"><a href="#变量类型和使用规则" class="headerlink" title="变量类型和使用规则"></a>变量类型和使用规则</h3><p>● int   整数类型  取值范围：最大2147483647;最小-2147483648<br>● double   小数类型  取值范围：最大 1.79769e+308;最小-1.79769e+308<br>● string    字符串  “” &#x2F;&#x2F; 双引号 可以为空<br>● char    字符   ‘ ‘  &#x2F;&#x2F; 不能为空但是可以有空字符串必须为单引号 ‘  ‘<br>● decimal    金钱类型<br>● bool   我们用bool类型来描述对或者错。<br>● true    对<br>● false   错<br>先声明、在赋值、最后使用、必须以字母开头，后面可以跟任意字母，数字，下划线</p>
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>   在方法中，我们声明的所有变量都叫做局部变量 。局部变量的作用域就是当前方法</p>
+<h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><p>   在类中，我们声明的变量叫做成员变量。成员变量的作用域当前类，所谓作用域指的就是，我们能够使用这个变量的范围。</p>
+
             
         </div>
     </div>
