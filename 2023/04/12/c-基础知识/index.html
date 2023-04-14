@@ -159,10 +159,15 @@
     </div>
     
     <div class="content" v-pre>
-        <h3 id="变量规则"><a href="#变量规则" class="headerlink" title="变量规则"></a>变量规则</h3><p>不能以数字开头、不能以程序关键字命名、不能有特殊符号卡头(除下划线 _ )、驼峰命名法、区分大小写</p>
-<h3 id="变量类型和使用规则"><a href="#变量类型和使用规则" class="headerlink" title="变量类型和使用规则"></a>变量类型和使用规则</h3><p>● int   整数类型  取值范围：最大2147483647;最小-2147483648<br>● double   小数类型  取值范围：最大 1.79769e+308;最小-1.79769e+308<br>● string    字符串  “” &#x2F;&#x2F; 双引号 可以为空<br>● char    字符   ‘ ‘  &#x2F;&#x2F; 不能为空但是可以有空字符串必须为单引号 ‘  ‘<br>● decimal    金钱类型<br>● bool   我们用bool类型来描述对或者错。<br>● true    对<br>● false   错<br>先声明、在赋值、最后使用、必须以字母开头，后面可以跟任意字母，数字，下划线</p>
-<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>   在方法中，我们声明的所有变量都叫做局部变量 。局部变量的作用域就是当前方法</p>
+        <h3 id="1-变量规则"><a href="#1-变量规则" class="headerlink" title="1.变量规则"></a>1.变量规则</h3><p>不能以数字开头、不能以程序关键字命名、不能有特殊符号卡头(除下划线 _ )、驼峰命名法、区分大小写</p>
+<h3 id="2-变量类型和使用规则"><a href="#2-变量类型和使用规则" class="headerlink" title="2.变量类型和使用规则"></a>2.变量类型和使用规则</h3><p>● int   整数类型  取值范围：最大2147483647;最小-2147483648<br>● double   小数类型  取值范围：最大 1.79769e+308;最小-1.79769e+308<br>● string    字符串  “” &#x2F;&#x2F; 双引号 可以为空<br>● char    字符   ‘ ‘  &#x2F;&#x2F; 不能为空但是可以有空字符串必须为单引号 ‘  ‘<br>● decimal    金钱类型<br>● bool   我们用bool类型来描述对或者错。<br>● true    对<br>● false   错<br>先声明、在赋值、最后使用、必须以字母开头，后面可以跟任意字母，数字，下划线</p>
+<h3 id="3-局部变量"><a href="#3-局部变量" class="headerlink" title="3.局部变量"></a>3.局部变量</h3><p>   在方法中，我们声明的所有变量都叫做局部变量 。局部变量的作用域就是当前方法</p>
 <h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><p>   在类中，我们声明的变量叫做成员变量。成员变量的作用域当前类，所谓作用域指的就是，我们能够使用这个变量的范围。</p>
+<h3 id="4-初始化变量"><a href="#4-初始化变量" class="headerlink" title="4.初始化变量"></a>4.初始化变量</h3><p>变量是结构或类的成员时，可以不用显示初始化，默认值为变量类型的默认值default(t)<br>变量是局部变量时，必须初始化后才能使用，否则编译出错</p>
+<p>&#x2F;&#x2F;定义时初始化<br>int x&#x3D;10;<br>Console.WriteLine(x);<br>或者：</p>
+<p>&#x2F;&#x2F;定义和初始化分开<br>int x;<br>x &#x3D; 10;<br>Console.WriteLine(x);</p>
+<h3 id="5-弱类型"><a href="#5-弱类型" class="headerlink" title="5.弱类型"></a>5.弱类型</h3><p>弱类型必须定义时就要初始化<br>弱类型一但经过初始化后，类型即确定。后续不能在赋予它其它不能存在隐式转换规则的类型值<br>static void Main(string[] args)<br>   {<br>      var a &#x3D; “Hello,World”;<br>      &#x2F;&#x2F;string类型和整型不能隐式转换，因此不能给a赋值为整型<br>      &#x2F;&#x2F;a &#x3D; 10;<br>      &#x2F;&#x2F;获取变量a的实际类型<br>      Type t&#x3D; a.GetType();<br>      Console.WriteLine(t);<br>   }</p>
+<h3 id="6-常量"><a href="#6-常量" class="headerlink" title="6.常量"></a>6.常量</h3><p>常量必须在声明时初始化，后续将不能在修改其值<br>常量值在编译时进行计算，因此从一个变量中提取值来初始化<br>常量总是隐式静态的，因此不允许使用static来修饰<br>const int a&#x3D;100;<br>引用类型<br>存储在托管堆中（managed heap）<br>它存储的是对值的引用，这类类型是通过对值的引用来复制，修改第一个变量值会影响第二个变量的值<br>CLR会跟踪引用变量的可访问性进行垃圾回收</p>
 
     </div>
     

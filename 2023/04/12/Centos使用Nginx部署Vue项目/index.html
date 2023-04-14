@@ -159,10 +159,21 @@
     </div>
     
     <div class="content" v-pre>
-        <p>Vue开发后将项目需要部署到Ngxin代理服务</p>
-<h2 id="使用Xshell连接服务器"><a href="#使用Xshell连接服务器" class="headerlink" title="使用Xshell连接服务器"></a>使用Xshell连接服务器</h2><p>使用指令下载Nginx<br>yum install nginx -y<br>下载成功后启动服务访问服务器ip地址即可</p>
-<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p>nginx</p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3>
+        <h2 id="Vue开发后将项目需要部署到Ngxin代理服务"><a href="#Vue开发后将项目需要部署到Ngxin代理服务" class="headerlink" title="Vue开发后将项目需要部署到Ngxin代理服务"></a>Vue开发后将项目需要部署到Ngxin代理服务</h2><h6 id="1-使用Xshell连接服务器"><a href="#1-使用Xshell连接服务器" class="headerlink" title="1.使用Xshell连接服务器"></a>1.使用Xshell连接服务器</h6><p>使用指令下载Nginx<br>yum install nginx -y</p>
+<h6 id="2-启动服务"><a href="#2-启动服务" class="headerlink" title="2.启动服务"></a>2.启动服务</h6><p>nginx 启动nginx服务 访问服务器Ip成功会看见默认的页面</p>
+<h6 id="3-上传自己的Vue文件"><a href="#3-上传自己的Vue文件" class="headerlink" title="3.上传自己的Vue文件"></a>3.上传自己的Vue文件</h6><p>我们将自己打包好的Vue文件放到桌面，在xshell界面使用rz指令去上传文件，上传完成之后使用指令解压此文件<br>注意！解压之前我们需要先去创建一个文件夹来存放我们解压后的文件，这样方便我们后续操作</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">unizip</span> <span class="string">dist.zip</span></span><br></pre></td></tr></table></figure>
+<p>解压完成之后记住当前路径</p>
+<h6 id="4-修改nginx配置"><a href="#4-修改nginx配置" class="headerlink" title="4.修改nginx配置"></a>4.修改nginx配置</h6><p>xshell使用指令利用vim编辑器，进入nginx.conf配置文件修改配置<br>打开此文件路径</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">vim</span> <span class="string">/etc/nginx/nginx.conf</span></span><br></pre></td></tr></table></figure>
+<p>修改用户名</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">user</span> <span class="string">root;</span>  </span><br></pre></td></tr></table></figure>
+<p>找到server配置项</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">server</span> &#123;</span><br><span class="line">        <span class="comment">#默认监听端口号</span></span><br><span class="line">        <span class="comment">#listen 80;</span></span><br><span class="line">        <span class="comment">#服务器IP</span></span><br><span class="line">        <span class="string">server_name</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">;</span></span><br><span class="line">        <span class="comment">#文件主入口</span></span><br><span class="line">        <span class="string">index</span> <span class="string">index.html;</span></span><br><span class="line">        <span class="comment">#文件路径位置</span></span><br><span class="line">        <span class="string">root</span> <span class="string">/www/server/hrsaas;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#err_page 404 /404.html;</span></span><br><span class="line">        <span class="comment">#跨域</span></span><br><span class="line">        <span class="string">location</span> <span class="string">/prod-api</span></span><br><span class="line">        <span class="comment">#需要代理的服务器域名</span></span><br><span class="line">        <span class="string">proxy_pass</span> <span class="string">你要代理的服务器域名</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中 &#x2F;prod-api是Vue生产环境中命中的字段（根据业务需求更换），接着使用 :wq 退出指令<br>接着我们重启Ngxin服务指令</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">nginx</span> <span class="string">-s</span> <span class="string">reload</span></span><br></pre></td></tr></table></figure>
+<p>访问服务器Ip地址成功显示我们的项目</p>
+
     </div>
     
     
